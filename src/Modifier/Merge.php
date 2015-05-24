@@ -15,7 +15,7 @@ class Merge
     protected $x;
     protected $y;
 
-    function __construct($x, $y, $image)
+    public function __construct($x, $y, $image)
     {
         $this->x = $x;
         $this->y = $y;
