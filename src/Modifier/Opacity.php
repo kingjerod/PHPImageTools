@@ -12,7 +12,7 @@ class Opacity implements ModifierInterface
 {
     protected $opacity;
 
-    function __construct($opacity)
+    public function __construct($opacity)
     {
         $this->opacity = $opacity;
     }

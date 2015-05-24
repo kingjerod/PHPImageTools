@@ -36,8 +36,17 @@ class Text implements ModifierInterface
      * @param int $alignment How the text should be aligned with the anchor.
      * @param ImagickDraw An ImagickDraw instance (optional)
      */
-    function __construct($x, $y, $font, $color, $opacity, $size, $text, $alignment = self::LEFT, $imagickDraw = null)
-    {
+    public function __construct(
+        $x,
+        $y,
+        $font,
+        $color,
+        $opacity,
+        $size,
+        $text,
+        $alignment = self::LEFT,
+        $imagickDraw = null
+    ) {
         $this->x = $x;
         $this->y = $y;
         $this->font = $font;

@@ -15,7 +15,7 @@ class Crop implements ModifierInterface
     protected $width;
     protected $height;
 
-    function __construct($x, $y, $width, $height)
+    public function __construct($x, $y, $width, $height)
     {
         $this->x = $x;
         $this->y = $y;

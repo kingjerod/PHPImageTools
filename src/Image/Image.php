@@ -3,7 +3,7 @@ namespace kingjerod\ImageTools\Image;
 
 use Imagick;
 
-class Image 
+class Image
 {
     /**
      * @var Imagick
