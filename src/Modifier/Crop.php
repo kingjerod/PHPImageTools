@@ -26,6 +26,6 @@ class Crop implements ModifierInterface
     public function modify(Image $image)
     {
         $imagick = $image->getImagick();
-        $imagick->crop($this->x, $this->y, $this->width, $this->height);
+        $imagick->cropImage($this->width, $this->height, $this->x, $this->y);
     }
 }
