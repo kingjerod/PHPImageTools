@@ -1,6 +1,7 @@
 # PHPImageTools
 [![Build Status](https://travis-ci.org/kingjerod/php-image-tools.png?branch=master)](https://travis-ci.org/kingjerod/php-image-tools)
 [![Coverage Status](https://coveralls.io/repos/kingjerod/php-image-tools/badge.svg?branch=master)](https://coveralls.io/r/kingjerod/php-image-tools?branch=master)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](LICENSE)
 
 PHP library for image manipulation, uses modifiers to alter images. Simplifies some of the complicatedness of Imagick. Has a factory to help load remote images, and also find/manipulate images in folders.
 

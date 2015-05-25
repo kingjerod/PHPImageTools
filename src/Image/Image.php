@@ -2,6 +2,7 @@
 namespace kingjerod\ImageTools\Image;
 
 use Imagick;
+use kingjerod\ImageTools\Modifier\ModifierInterface;
 
 class Image
 {
@@ -19,7 +20,7 @@ class Image
      * Applies a modifier to the image
      * @param $modifier
      */
-    public function modify($modifier)
+    public function modify(ModifierInterface $modifier)
     {
         $modifier->modify($this);
     }

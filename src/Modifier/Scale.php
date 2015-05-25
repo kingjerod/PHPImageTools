@@ -6,9 +6,8 @@ use Imagick;
 
 /**
  * Class Scale
- * This modifier will scale an image's size, up or down. When scaling an image up, the
- * best filter is Mitchell. For down scaling, use Lanczos. If these filters are taking
- * too long, use Gaussian.
+ * This modifier will scale an image's size, up or down. If not filter is given, it will attempt
+ * to use the best filter depending if the image is being enlarged or shrunk.
  * @package kingjerod\ImageTools\Modifier
  */
 class Scale implements ModifierInterface
@@ -22,7 +21,7 @@ class Scale implements ModifierInterface
     const FILTER_CATROM = Imagick::FILTER_CATROM; //Similar to LANCZOS, but faster
     const FILTER_GAUSSIAN = Imagick::FILTER_GAUSSIAN; //Not the best filter, but fast
 
-    public function __construct($width, $height, $filter = self::FILTER_LANCZOS)
+    public function __construct($width, $height, $filter = null)
     {
         $this->width = $width;
         $this->height = $height;
@@ -32,6 +31,19 @@ class Scale implements ModifierInterface
     public function modify(Image $image)
     {
         $imagick = $image->getImagick();
-        $imagick->resizeImage($this->width, $this->height, $this->filter, 1);
+        $width = $imagick->getImageWidth();
+        $height = $imagick->getImageHeight();
+
+        //Figure out filter depending if shrinking or enlarging image
+        $filter = $this->filter;
+        if ($filter == null) {
+            //Default to LANCZOS
+            $filter = self::FILTER_LANCZOS;
+            if ($width < $this->width && $height < $this->height) {
+                //Enlarging image, use Mitchell
+                $filter = self::FILTER_MITCHELL;
+            }
+        }
+        $imagick->resizeImage($this->width, $this->height, $filter, 1);
     }
 }

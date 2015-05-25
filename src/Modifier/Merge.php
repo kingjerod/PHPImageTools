@@ -9,7 +9,7 @@ use kingjerod\ImageTools\Image\Image;
  * This modifier will merge an image into another at the target X,Y coordinates
  * @package kingjerod\ImageTools\Modifier
  */
-class Merge
+class Merge implements ModifierInterface
 {
     protected $image;
     protected $x;
